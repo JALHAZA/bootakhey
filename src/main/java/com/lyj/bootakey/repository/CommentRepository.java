@@ -1,6 +1,6 @@
-package com.example.securityex01.repository;
+package com.lyj.bootakey.repository;
 
-import com.example.securityex01.domain.Comment;
+import com.lyj.bootakey.domain.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {

@@ -1,4 +1,4 @@
-package com.lyj.securitydomo;
+package com.lyj.bootakey;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

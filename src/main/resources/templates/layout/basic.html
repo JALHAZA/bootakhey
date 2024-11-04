@@ -18,11 +18,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
+<!--                security tag-->
                 <li sec:authorize="isAuthenticated()" class="nav-item ">
                     <a class="nav-link" href="/board/list">Board List</a>
                 </li>
                 <li sec:authorize="hasAnyAuthority('USER')" class="nav-item">
-                    <a class="nav-link" href="/User">User</a>
+                    <a class="nav-link" href="/board/user">User</a>
                 </li>
 
                 <li sec:authorize="hasAnyAuthority('ADMIN')" class="nav-item">

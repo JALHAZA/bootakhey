@@ -3,10 +3,12 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/basic.html}">
 
+
+
 <div layout:fragment="content">
   <div class="container">
     <h3>[[${board.writer}]]의 글 수정</h3>
-    <form action="/board/"
+    <form action="/board/" method="post">
     <input type="hidden" name="num" id="num" value="${board.num }">
     <div class="form-group">
       <label for="title">제목:</label>
@@ -23,5 +25,6 @@
     <div class="form-group text-right">
       <button type="button" class="btn btn-secondary btn-sm" id="btnModify">수정하기</button>
     </div>
+    </form>
   </div>
 </div>
