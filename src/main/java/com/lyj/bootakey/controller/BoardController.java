@@ -36,14 +36,20 @@ public class BoardController {
     @PostMapping("/insert")
     public String insert(Board board,
                          @AuthenticationPrincipal PrincipalDetails principal) {
-        board.setWriter(principal.getUsername());
+//        board.setWriter(principal.getUsername());
         boardService.insert(board,principal.getUser() );
         return "redirect:/board/list";
     }
 
-    @GetMapping({"/view", "/modify"})
-    public void view(@RequestParam("num") Long num, Model model) {
+    @GetMapping("/view")
+    public String view(@RequestParam("num") Long num, Model model) {
         model.addAttribute("board",boardService.findById(num));
+        return "/board/view";
+    }
+    @GetMapping("/modify")
+    public String update(@RequestParam Long num, Model model) {
+        model.addAttribute("board", boardService.findById(num));
+        return "/board/modify";
     }
 
     @GetMapping("/list")

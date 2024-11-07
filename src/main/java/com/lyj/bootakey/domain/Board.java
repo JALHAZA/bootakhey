@@ -24,9 +24,9 @@ public class Board {
     private Date regdate;
     @ColumnDefault("0")
     private Long hitcount;
-    @ManyToOne(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL,
-            optional = true)
+    private Long replycount;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -37,5 +37,8 @@ public class Board {
     @PrePersist
     public void prePersist() {
         this.hitcount=this.hitcount==null?0:this.hitcount;
+        this.replycount=this.replycount==null?0:this.replycount;
     }
+
+
 }

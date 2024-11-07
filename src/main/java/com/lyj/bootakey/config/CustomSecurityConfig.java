@@ -28,8 +28,9 @@ public class CustomSecurityConfig {
                 .csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable())
                 .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.disable())
                 .authorizeHttpRequests(authorizeHttpRequestsConfigurer -> authorizeHttpRequestsConfigurer
+                        .requestMatchers("/error").permitAll()
+                        .requestMatchers("/user/login","/signup","/","/board/**","/rereplies/**").permitAll()
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-                        .requestMatchers("/user/login","/signup","/","/board/**").permitAll()
                         .requestMatchers(HttpMethod.GET,"/board/**").permitAll()
                         .requestMatchers("/admin/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated())
